@@ -9,14 +9,14 @@ class tracking extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['id', 'positif', 'sembuh', 'meninggal', 'tanggal'];
+    protected $fillable = ['id_rw', 'positif', 'sembuh', 'meninggal', 'tanggal'];
     public $timetamps = true;
 
     public function rw(){
-        return $this->belongsTo('App\Models\Rw', 'id_rw');
+        return $this->belongsTo('App\Models\rw', 'id_rw');
     }
 
     public function tracking(){
-        return $this->hasMany('App\Models\Tracking', 'id_tracking');
+        return $this->hasMany('App\Models\tracking', 'id_tracking');
     }
 }

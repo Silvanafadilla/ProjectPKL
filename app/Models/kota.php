@@ -13,11 +13,11 @@ class kota extends Model
     public $timetamps = true;
 
     public function provinsi(){
-       return $this->belongsTo('App\Models\Provinsi', 'id_prov');
+       return $this->belongsTo('App\Models\provinsi', 'id_prov');
     }
 
     public function kecamatan(){
-        return $this->hasMany('App\Models\Kecamatan', 'id_kota');
+        return $this->hasMany('App\Models\kecamatan', 'id_kota');
      }
 
 }

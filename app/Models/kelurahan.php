@@ -13,10 +13,10 @@ class kelurahan extends Model
     public $timetamps = true;
 
     public function kecamatan(){
-        return $this->belongsTo('App\Models\Kecamatan', 'id_kec');
+        return $this->belongsTo('App\Models\kecamatan', 'id_kec');
     }
 
     public function rw(){
-        return $this->hasMany('App\Models\Rw', 'id_kel');
+        return $this->hasMany('App\Models\rw', 'id_kel');
     }
 }

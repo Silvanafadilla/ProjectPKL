@@ -14,10 +14,10 @@ class rw extends Model
 
 
     public function kelurahan(){
-        return $this->belongsTo('App\Models\Kelurahan', 'id_kel');
+        return $this->belongsTo('App\Models\kelurahan', 'id_kel');
     }
 
     public function tracking(){
-        return $this->hasMany('App\Models\Tracking', 'id_rw');
+        return $this->hasMany('App\Models\tracking', 'id_rw');
     }
 }

@@ -13,6 +13,6 @@ class provinsi extends Model
     public $timetamps = true;
 
     public function kota(){
-        return $this->hasMany('App\Models\Kota', 'id_prov');
+        return $this->hasMany('App\Models\kota', 'id_prov');
     }
 }

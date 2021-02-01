@@ -18,7 +18,7 @@
                         <div class="form-group">
                             <label for="">Nama Kelurahan</label>
                             <select class="form-control" name="id_kel" id="">
-                                @foreach($kecamatan as $data)
+                                @foreach($kelurahan as $data)
                                     <option value="{{$data->id}}">{{$data->nama_kel}}</option>
                                 @endforeach
                             </select>

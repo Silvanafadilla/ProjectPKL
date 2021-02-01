@@ -14,7 +14,7 @@ class TrackingController extends Controller
     }
     public function index()
     {
-        $tracking = Tracking::with('rw')->get();
+        $tracking = Tracking::with('rw.kelurahan.kecamatan.kota.provinsi')->get();
         return view('tracking.index', compact('tracking'));
     }
 
@@ -41,37 +41,28 @@ class TrackingController extends Controller
         
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\tracking  $tracking
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(tracking $tracking)
+    public function edit($id)
     {
-        //
+        $tracking = Tracking::findOrFail($id);
+        $rw = rw::all();
+        return view('tracking.edit', compact('tracking', 'rw'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\tracking  $tracking
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, tracking $tracking)
+    public function update(Request $request, $id)
     {
-        //
+        $tracking = Tracking::findOrFail($id);
+        $tracking->positif = $request->positif;
+        $tracking->sembuh = $request->sembuh;
+        $tracking->meninggal = $request->meninggal;
+        $tracking->tanggal = $request->tanggal;
+        $tracking->id_rw = $request->id_rw;
+        $tracking->save();
+        return redirect()->route('tracking.index')->with(['message'=>'Data berhasil diedit']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\tracking  $tracking
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(tracking $tracking)
+    public function destroy($id)
     {
-        //
+        $tracking = Tracking::findOrFail($id)->delete();
+        return redirect()->route('tracking.index');
     }
 }
