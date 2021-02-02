@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\provinsi;
-use App\Http\Controller\DB;
+use App\Http\Controllers\DB;
 use Illuminate\Http\Request;
 
 class ProvinsiController extends Controller
@@ -53,7 +53,7 @@ class ProvinsiController extends Controller
         return redirect()->route('provinsi.index')->with(['message'=>'tabel provinsi berhasil diedit']);
     }
 
-    public function destroy(provinsi $provinsi)
+    public function destroy($id)
     {
         $provinsi = Provinsi::findOrFail($id)->delete();
         return redirect()->route('provinsi.index')->with(['message'=>'tabel provinsi berhasil dihapus']);

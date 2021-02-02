@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProvinsiController;
+use App\Http\Controllers\Api\ProvinsiController;
+use App\Http\Controllers\Api\ApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 
 });
+Route::get('provinsis', [ApiController::class, 'provinsi']);
 
 Route::get('/provinsi', [ProvinsiController::class , 'index']);
 Route::post('/provinsi/store', [ProvinsiController::class, 'store']);
