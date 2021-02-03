@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\provinsi;
 use App\Models\rw;
+use App\Models\kota;
+use App\Models\kelurahan;
+use App\Models\kecamatan;
+use App\Models\tracking;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -12,24 +17,88 @@ class ApiController extends Controller
 
     public function rw()
     {
-        $rw = rw::where('rws')->get()->count();
+        $positif = DB::table('rws')
+            ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
+            ->join('trackings', 'rws.id','=', 'trackings.id_rw')
+            ->sum('trackings.positif');
+        $sembuh = DB::table('rws')
+            ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
+            ->join('trackings', 'rws.id','=', 'trackings.id_rw')
+            ->sum('trackings.sembuh');
+        $meninggal = DB::table('rws')
+            ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
+            ->join('trackings', 'rws.id','=', 'trackings.id_rw')
+            ->sum('trackings.meninggal');
         $res = [
             'success' => true,
-            'data' => $rw,
-            'hari ini' => 'positif', 'sembuh', 'meninggal',
+            'data' => 'Data Covid-19 Indonesia',
+            'positif' => $positif,
+            'sembuh' => $sembuh,
+            'meninggal' => $meninggal,
             'message' => 'berhasil'
         ];
-        return response()->json($res);
+        return response()->json($res, 200);
+        // $rw = DB::table('rws')
+        //     ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
+        //     ->join('trackings', 'rws.id','=', 'trackings.id_rw')
+        //     ->sum('trackings.positif', 'trackings.sembuh', 'trackings.meninggal');
+        //     dd($rw);
+        // $res = [
+        //     'success' => true,
+        //     'data' => $rw,
+        //     'message' => 'berhasil'
+        // ];
+        // return response()->json($res, 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function provinsi()
     {
-        //
+        $provinsi = DB::table('provinsis')
+        ->select('provinsis.kode_prov', 'provinsis.nama_prov', DB::raw('sum(positif) as posititf'), 
+        DB::raw('sum(sembuh) as sembuh'), DB::raw('sum(meninggal) as meninggal'))
+        ->join('kotas', 'kotas.id_prov', '=', 'provinsis.id')
+        ->join('kecamatans', 'kecamatans.id_kota', '=', 'kotas.id')
+        ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.id_kec')
+        ->join('rws', 'kelurahans.id', '=', 'rws.id_kel')
+        ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
+        ->groupBy('provinsis.id')
+        ->get();
+        
+        $positif = DB::table('provinsis')
+        ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
+        ->join('kotas', 'provinsis.id', '=', 'kotas.id_prov')
+        ->join('kecamatans', 'kecamatans.id_kota', '=', 'kotas.id')
+        ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.id_kec')
+        ->join('rws', 'kelurahans.id', '=', 'rws.id_kel')
+        ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
+        ->sum('trackings.positif');
+        $sembuh = DB::table('provinsis')
+        ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
+        ->join('kotas', 'provinsis.id', '=', 'kotas.id_prov')
+        ->join('kecamatans', 'kecamatans.id_kota', '=', 'kotas.id')
+        ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.id_kec')
+        ->join('rws', 'kelurahans.id', '=', 'rws.id_kel')
+        ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
+        ->sum('trackings.sembuh');
+        $meninggal = DB::table('provinsis')
+        ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
+        ->join('kotas', 'provinsis.id', '=', 'kotas.id_prov')
+        ->join('kecamatans', 'kecamatans.id_kota', '=', 'kotas.id')
+        ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.id_kec')
+        ->join('rws', 'kelurahans.id', '=', 'rws.id_kel')
+        ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
+        ->sum('trackings.meninggal');
+        
+        // dd($provinsi);
+        $res = [
+            'success' => true,
+            'data' => [ 'Hari ini' => $provinsi],
+                    'total' => ['Positif' => $positif,
+                    'Sembuh' => $sembuh,
+                    'Meninggal' => $meninggal],
+            'message' => 'berhasil'
+        ];
+        return response()->json($res, 200);
     }
 
     /**

@@ -17,7 +17,7 @@ class kota extends Model
     }
 
     public function kecamatan(){
-        return $this->hasMany('App\Models\kecamatan', 'id_kota');
+        return $this->hasMany('App\Models\kota', 'id_kota');
      }
 
 }

@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 
 });
+Route::get('rws', [ApiController::class, 'rw']);
 Route::get('provinsis', [ApiController::class, 'provinsi']);
 
 Route::get('/provinsi', [ProvinsiController::class , 'index']);
