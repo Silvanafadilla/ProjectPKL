@@ -25,6 +25,18 @@ class ProvinsiController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'kode_prov' => 'required|unique:provinsis',
+            'nama_prov' => 'required|unique:provinsis',
+        ],
+            [
+                'kode_prov.required' => 'Kode Provinsi harus diisi!',
+                'kode_prov.unique' => 'Kode Provinsi sudah terdaftar!',
+                'nama_prov.required' => 'Nama Provinsi harus diisi!',
+                'nama_prov.unique' => 'Provinsi sudah terdaftar!'
+            ]
+        );
+
         $provinsi = new Provinsi();
         $provinsi->kode_prov = $request->kode_prov;
         $provinsi->nama_prov = $request->nama_prov;
@@ -46,6 +58,15 @@ class ProvinsiController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'kode_prov' => 'required',
+            'nama_prov' => 'required',
+        ],
+            [
+                'kode_prov.required' => 'Kode Provinsi harus diisi!',
+                'nama_prov.required' => 'Nama Provinsi harus diisi!',
+            ]
+        );
         $provinsi = Provinsi::findOrFail($id);
         $provinsi->kode_prov = $request->kode_prov;
         $provinsi->nama_prov = $request->nama_prov;

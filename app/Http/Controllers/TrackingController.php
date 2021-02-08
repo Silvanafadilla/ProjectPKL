@@ -26,6 +26,22 @@ class TrackingController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'positif' => 'required|max:5',
+            'sembuh' => 'required|max:5',
+            'meninggal' => 'required|max:5',
+            'tanggal' => 'required',
+        ],
+            [
+                'positif.required' => 'Jumlah harus diisi!',
+                'positif.max' => 'Maximal 5 angka!',
+                'sembuh.required' => 'Jumlah harus diisi!',
+                'sembuh.max' => 'Maximal 5 angka!',
+                'meninggal.required' => 'Jumlah harus diisi!',
+                'meninggal.max' => 'Maximal 5 angka!',
+                'tanggal' => 'Tanggal harus diisi!',
+            ]
+        );
         $tracking = new Tracking();
         $tracking->positif = $request->positif;
         $tracking->sembuh = $request->sembuh;
@@ -50,6 +66,22 @@ class TrackingController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'positif' => 'required|max:5',
+            'sembuh' => 'required|max:5',
+            'meninggal' => 'required|max:5',
+            'tanggal' => 'required',
+        ],
+            [
+                'positif.required' => 'Jumlah harus diisi!',
+                'positif.max' => 'Maximal 5 angka!',
+                'sembuh.required' => 'Jumlah harus diisi!',
+                'sembuh.max' => 'Maximal 5 angka!',
+                'meninggal.required' => 'Jumlah harus diisi!',
+                'meninggal.max' => 'Maximal 5 angka!',
+                'tanggal' => 'Tanggal harus diisi!',
+            ]
+        );
         $tracking = Tracking::findOrFail($id);
         $tracking->positif = $request->positif;
         $tracking->sembuh = $request->sembuh;

@@ -26,6 +26,17 @@ class KecamatanController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'kode_kec' => 'required|unique:kecamatans',
+            'nama_kec' => 'required|unique:kecamatans',
+        ],
+            [
+                'kode_kec.required' => 'Kode harus diisi!',
+                'kode_kec.unique' => 'Kode kecamatan sudah terdaftar!',
+                'nama_kec.required' => 'Nama harus diisi!',
+                'nama_kec.unique' => 'Kecamatan sudah terdaftar!',
+            ]
+        );
         $kecamatan = new Kecamatan();
         $kecamatan->kode_kec = $request->kode_kec;
         $kecamatan->nama_kec = $request->nama_kec;
@@ -49,6 +60,15 @@ class KecamatanController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'kode_kec' => 'required',
+            'nama_kec' => 'required',
+        ],
+            [
+                'kode_kec.required' => 'Kode harus diisi!',
+                'nama_kec.required' => 'Nama harus diisi!',
+            ]
+        );
         $kecamatan = Kecamatan::findOrFail($id);
         $kecamatan->kode_kec = $request->kode_kec;
         $kecamatan->nama_kec = $request->nama_kec;

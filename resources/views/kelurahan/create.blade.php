@@ -12,7 +12,10 @@
                         @csrf
                         <div class="form-group">
                             <label for="">Nama Kelurahan</label>
-                            <input type="text" name="nama_kel" class="form-control" required>
+                            <input type="text" name="nama_kel" class="form-control">
+                            @if ($errors->has('nama_kel'))
+                                <span class="text-danger">{{$errors->first('nama_kel')}}</span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="">Nama Kecamatan</label>

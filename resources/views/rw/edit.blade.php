@@ -13,7 +13,10 @@
                         @csrf
                         <div class="form-group">
                             <label for="">Nama Rw</label>
-                            <input type="text" name="nama_rw" value="{{$rw->nama_rw}}" class="form-control" required>
+                            <input type="text" name="nama_rw" value="{{$rw->nama_rw}}" class="form-control">
+                            @if ($errors->has('nama_rw'))
+                                <span class="text-danger">{{$errors->first('nama_rw')}}</span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="">Nama Kelurahan</label>

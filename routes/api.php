@@ -19,8 +19,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 
 });
-Route::get('rws', [ApiController::class, 'rw']);
+Route::get('indonesia', [ApiController::class, 'indonesia']);
 Route::get('provinsis', [ApiController::class, 'provinsi']);
+Route::get('kota', [ApiController::class, 'kota']);
+Route::get('kecamatan', [ApiController::class, 'kecamatan']);
+Route::get('kelurahan', [ApiController::class, 'kelurahan']);
+Route::get('rws', [ApiController::class, 'rw']);
+Route::get('global', [ApiController::class, 'global']);
+
+Route::get('positif', [ApiController::class, 'positif']);
+Route::get('sembuh', [ApiController::class, 'sembuh']);
+Route::get('meninggal', [ApiController::class, 'meninggal']);
 
 Route::get('/provinsi', [ProvinsiController::class , 'index']);
 Route::post('/provinsi/store', [ProvinsiController::class, 'store']);

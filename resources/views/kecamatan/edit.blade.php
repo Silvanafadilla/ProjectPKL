@@ -12,12 +12,18 @@
                         <input type="hidden" name="_method" value="PUT">
                         @csrf
                         <div class="form-group">
-                            <label for="">Kode kota</label>
-                            <input type="text" name="kode_kec" value="{{$kecamatan->kode_kec}}" class="form-control" required>
+                            <label for="">Kode Kecamatan</label>
+                            <input type="text" name="kode_kec" value="{{$kecamatan->kode_kec}}" class="form-control">
+                            @if ($errors->has('kode_kec'))
+                                <span class="text-danger">{{$errors->first('kode_kec')}}</span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="">Nama kota</label>
-                            <input type="text" name="nama_kec" value="{{$kecamatan->nama_kec}}" class="form-control" required>
+                            <input type="text" name="nama_kec" value="{{$kecamatan->nama_kec}}" class="form-control">
+                            @if ($errors->has('nama_kec'))
+                                <span class="text-danger">{{$errors->first('nama_kec')}}</span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="">Nama Provinsi</label>

@@ -12,11 +12,17 @@
                         @csrf
                         <div class="form-group">
                             <label for="">Kode Provinsi</label>
-                            <input type="text" name="kode_prov" class="form-control" required>
+                            <input type="text" name="kode_prov" class="form-control">                      
+                            @if ($errors->has('kode_prov'))
+                                <span class="text-danger">{{$errors->first('kode_prov')}}</span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="">Nama Provinsi</label>
-                            <input type="text" name="nama_prov" class="form-control" required>
+                            <input type="text" name="nama_prov" class="form-control">
+                            @if ($errors->has('nama_prov'))
+                                <span class="text-danger">{{$errors->first('nama_prov')}}</span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Simpan</button>
