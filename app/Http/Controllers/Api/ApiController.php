@@ -39,31 +39,6 @@ class ApiController extends Controller
         ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
         ->groupBy('provinsis.id')
         ->get();
-        // $positif = DB::table('provinsis')
-        // ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
-        // ->join('kotas', 'provinsis.id', '=', 'kotas.id_prov')
-        // ->join('kecamatans', 'kecamatans.id_kota', '=', 'kotas.id')
-        // ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.id_kec')
-        // ->join('rws', 'kelurahans.id', '=', 'rws.id_kel')
-        // ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
-        // ->sum('trackings.positif');
-        // $sembuh = DB::table('provinsis')
-        // ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
-        // ->join('kotas', 'provinsis.id', '=', 'kotas.id_prov')
-        // ->join('kecamatans', 'kecamatans.id_kota', '=', 'kotas.id')
-        // ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.id_kec')
-        // ->join('rws', 'kelurahans.id', '=', 'rws.id_kel')
-        // ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
-        // ->sum('trackings.sembuh');
-        // $meninggal = DB::table('provinsis')
-        // ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
-        // ->join('kotas', 'provinsis.id', '=', 'kotas.id_prov')
-        // ->join('kecamatans', 'kecamatans.id_kota', '=', 'kotas.id')
-        // ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.id_kec')
-        // ->join('rws', 'kelurahans.id', '=', 'rws.id_kel')
-        // ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
-        // ->sum('trackings.meninggal');
-        
         // dd($provinsi);
         $res = [
             'success' => true,

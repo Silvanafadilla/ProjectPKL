@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,10 @@ Route::get('test', function(){
     return view('layouts.master');
 });
 
+Route::get('index', function(){
+    return view('frontend.index');
+});
+
 Route::group(['prefix' => 'admin', 'middleware'=>['auth']],
     function(){
         Route::get('/', function(){
@@ -42,6 +47,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth']],
 });
 
 // use App\Http\Controllers\ProvinsiController;
+Route::resource('index', 'IndexController');
 Route::resource('admin/provinsi', 'ProvinsiController');
 Route::resource('admin/kota', 'KotaController');
 Route::resource('admin/kecamatan', 'KecamatanController');
