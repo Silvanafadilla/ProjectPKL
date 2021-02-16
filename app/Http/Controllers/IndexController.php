@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use App\Models\kecamatan;
 use App\Models\kelurahan;
 use App\Models\kota;
@@ -37,7 +38,15 @@ class IndexController extends Controller
             ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
             ->groupBy('provinsis.id')
             ->get();
+
+        $global = file_get_contents('Https://api.kawalcorona.com/positif');
+        $get = json_decode($global, TRUE);
+
+        $data = file_get_contents('Https://api.kawalcorona.com/');
+        $data2 = json_decode($data, TRUE);
+        // $url = Http::get('https://api.kawalcorona.com/')->json();
         
-        return view('frontend.index', compact('positif', 'sembuh', 'meninggal', 'provinsi'));
+        return view('frontend.index', compact('positif', 'sembuh', 'meninggal', 'provinsi',
+         'global', 'get', 'data', 'data2'));
     }
 }

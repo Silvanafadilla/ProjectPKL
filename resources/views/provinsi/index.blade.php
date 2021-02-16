@@ -17,6 +17,7 @@
                 </a>
                 </div>
                 <div class="card-body">
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -48,6 +49,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
                     </div>
                 </div>
             </div>
