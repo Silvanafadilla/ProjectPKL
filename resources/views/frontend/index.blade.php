@@ -38,14 +38,14 @@
 <body>
 
   <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+  {{-- <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
     <div class="container d-flex">
-        <i class="icofont-envelope">Welcome</i>
+        <i class="icofont-envelope">Tracking Covid</i>
     </div>
-  </div>
+  </div> --}}
   
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
+  <header id="header" class="top">
     <div class="container d-flex align-items-center">
 
       <h1 class="logo mr-auto"><a href="#"></a></h1>
@@ -89,7 +89,7 @@
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
       <h1>Tracking Covid
       </h1>
-      <h2>Data Kasus Corona di Indonesia</h2>
+      <h2>Data Kasus Corona di Indonesia & Global</h2>
     </div>
   </section><!-- End Hero -->
 
