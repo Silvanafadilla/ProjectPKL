@@ -17,26 +17,26 @@ class ApiController extends Controller
 {
 
     public function provinsi(){
-        $provinsi = DB::table('provinsis')
-        ->select('provinsis.kode_prov', 'provinsis.nama_prov', DB::raw('sum(trackings.positif) as positif'), 
-        DB::raw('sum(trackings.sembuh) as sembuh'), DB::raw('sum(trackings.meninggal) as meninggal'))
+        $provinsi = DB::table('provinsis')        
         ->join('kotas', 'kotas.id_prov', '=', 'provinsis.id')
         ->join('kecamatans', 'kecamatans.id_kota', '=', 'kotas.id')
         ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.id_kec')
         ->join('rws', 'kelurahans.id', '=', 'rws.id_kel')
         ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
         ->whereDate('tanggal', date('Y-m-d'))
+        ->select('provinsis.kode_prov', 'provinsis.nama_prov', DB::raw('sum(trackings.positif) as positif'), 
+        DB::raw('sum(trackings.sembuh) as sembuh'), DB::raw('sum(trackings.meninggal) as meninggal'))
         ->groupBy('provinsis.id')
         ->get();
         
-        $prov = DB::table('provinsis')
-        ->select('provinsis.kode_prov', 'provinsis.nama_prov', DB::raw('sum(trackings.positif) as posititf'), 
-        DB::raw('sum(trackings.sembuh) as sembuh'), DB::raw('sum(trackings.meninggal) as meninggal'))
+        $prov = DB::table('provinsis')        
         ->join('kotas', 'kotas.id_prov', '=', 'provinsis.id')
         ->join('kecamatans', 'kecamatans.id_kota', '=', 'kotas.id')
         ->join('kelurahans', 'kecamatans.id', '=', 'kelurahans.id_kec')
         ->join('rws', 'kelurahans.id', '=', 'rws.id_kel')
         ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
+        ->select('provinsis.kode_prov', 'provinsis.nama_prov', DB::raw('sum(trackings.positif) as posititf'), 
+        DB::raw('sum(trackings.sembuh) as sembuh'), DB::raw('sum(trackings.meninggal) as meninggal'))
         ->groupBy('provinsis.id')
         ->get();
         // dd($provinsi);
