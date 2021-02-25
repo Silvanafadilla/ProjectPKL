@@ -2,12 +2,12 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Provinsi;
-use App\Models\Kota;
-use App\Models\Kecamatan;
-use App\Models\Kelurahan;
-use App\Models\Rw;
-use App\Models\Tracking;
+use App\Models\provinsi;
+use App\Models\kota;
+use App\Models\kecamatan;
+use App\Models\kelurahan;
+use App\Models\rw;
+use App\Models\tracking;
 use Livewire\Component;
 
 class DataTracking extends Component

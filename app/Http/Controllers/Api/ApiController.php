@@ -73,7 +73,6 @@ class ApiController extends Controller
         ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
         ->groupBy('kotas.id')
         ->get();
-        var_dump($kota);
         $res = [
             'success' => true,
             'data' => ['Hari ini' => $kota ],
