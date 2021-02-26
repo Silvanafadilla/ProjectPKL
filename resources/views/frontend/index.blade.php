@@ -128,7 +128,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
               <div class="icon"><i class="bx bx-world"></i></div>
               <h4 class="title"><a href="">Global</a></h4>
-              <p class="description"><h2><?php echo $get['value']; ?></h2> ORANG</p>
+              {{-- <p class="description"><h2><?php echo $get['value']; ?></h2> ORANG</p> --}}
             </div>
           </div>
         </div>
