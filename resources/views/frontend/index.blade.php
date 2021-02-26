@@ -290,7 +290,7 @@
                                   <th scope="col">Meninggal</th>
                               </tr>
                           </thead>
-                          <tbody>
+                          {{-- <tbody>
                           @php $no=1; @endphp
                               @foreach($data2 as $data)
                               <tr>
@@ -301,7 +301,7 @@
                                   <td>{{$data['attributes']['Deaths']}}</td>
                               </tr>
                               @endforeach
-                          </tbody>
+                          </tbody> --}}
                       </table>
                   </div>
               </div>
