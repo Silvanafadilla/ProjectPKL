@@ -39,14 +39,14 @@ class IndexController extends Controller
             ->groupBy('provinsis.id')
             ->get();
 
-        $global = file_get_contents('Https://api.kawalcorona.com/positif');
-        $get = json_decode($global, TRUE);
+        // $global = file_get_contents('Https://api.kawalcorona.com/positif');
+        // $get = json_decode($global, TRUE);
 
-        $data = file_get_contents('Https://api.kawalcorona.com/');
-        $data2 = json_decode($data, TRUE);
+        // $data = file_get_contents('Https://api.kawalcorona.com/');
+        // $data2 = json_decode($data, TRUE);
         // $url = Http::get('https://api.kawalcorona.com/')->json();
         
-        return view('frontend.index', compact('positif', 'sembuh', 'meninggal', 'provinsi',
-         'global', 'get', 'data', 'data2'));
+        return view('frontend.index', compact('positif', 'sembuh', 'meninggal', 'provinsi')),
+        //  'global', 'get', 'data', 'data2'));
     }
 }
