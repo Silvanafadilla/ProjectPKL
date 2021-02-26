@@ -46,7 +46,7 @@ class IndexController extends Controller
         // $data2 = json_decode($data, TRUE);
         // $url = Http::get('https://api.kawalcorona.com/')->json();
         
-        return view('frontend.index', compact('positif', 'sembuh', 'meninggal', 'provinsi')),
+        return view('frontend.index', compact('positif', 'sembuh', 'meninggal', 'provinsi'));
         //  'global', 'get', 'data', 'data2'));
     }
 }
