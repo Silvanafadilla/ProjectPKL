@@ -73,10 +73,8 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
+    <strong>Copyright &copy; 2021 </strong>
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0-rc
     </div>
   </footer>
 
@@ -125,5 +123,10 @@
 {{-- Datatables --}}
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
 @livewireScripts
+<script>
+$(document).ready( function () {
+    $('#datatable').DataTable();
+} );
+</script>
 </body>
 </html>

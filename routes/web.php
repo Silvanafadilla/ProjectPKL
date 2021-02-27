@@ -47,7 +47,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth']],
 });
 
 // use App\Http\Controllers\ProvinsiController;
-Route::resource('index', 'IndexController');
+Route::resource('/', 'IndexController');
 Route::resource('admin/provinsi', 'ProvinsiController');
 Route::resource('admin/kota', 'KotaController');
 Route::resource('admin/kecamatan', 'KecamatanController');
