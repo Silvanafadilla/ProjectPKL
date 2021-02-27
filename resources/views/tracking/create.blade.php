@@ -12,6 +12,8 @@
                         <div class="row">
                             <div class="col">
                         @livewire('data-tracking')
+                            </div>
+                            <div class="col">
                         <div class="form-group">
                             <label for="">Jumlah Positif</label>
                             <input type="text" name="positif" class="form-control">

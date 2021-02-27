@@ -40,10 +40,10 @@ class ApiController extends Controller
         ->groupBy('provinsis.id')
         ->get();
         // dd($provinsi);
-        $res = [
+        $res = [[
             'success' => true,
             'data' => [ 'Hari ini' => $provinsi],
-                    'total' => [ $prov],
+                    'total' => [ $prov]],
             'message' => 'berhasil'
         ];
         return response()->json($res, 200);
@@ -73,10 +73,10 @@ class ApiController extends Controller
         ->join('trackings', 'rws.id', '=', 'trackings.id_rw')
         ->groupBy('kotas.id')
         ->get();
-        $res = [
+        $res = [[
             'success' => true,
             'data' => ['Hari ini' => $kota ],
-                'total' => $kot,
+                'total' => $kot],
             'message' => 'berhasil'
         ];
         return response()->json($res, 200);
@@ -106,10 +106,10 @@ class ApiController extends Controller
         ->get();
         var_dump($kecamatan);
 
-        $res = [
+        $res = [[
             'success' => true,
             'data' => ['Hari ini' => $kecamatan ],
-                'total' => $kec,
+                'total' => $kec],
             'message' => 'berhasil'
         ];
         return response()->json($res, 200);
@@ -134,10 +134,10 @@ class ApiController extends Controller
         ->groupBy('kelurahans.id')
         ->get();
 
-        $res = [
+        $res = [[
             'success' => true,
             'data' => ['Hari ini' => $kelurahan],
-                'total' => $kel,
+                'total' => $kel],
             'message' => 'berhasil'
         ];
         return response()->json($res, 200);
@@ -160,10 +160,10 @@ class ApiController extends Controller
             ->groupBy('rws.id')
             ->get();
             // dd($rw);
-        $res = [
+        $res = [[
             'success' => true,
             'data' => ['Hari ini' => $rw],
-                'total' => $r,
+                'total' => $r],
             'message' => 'berhasil'
         ];
         return response()->json($res, 200);        
@@ -183,12 +183,12 @@ class ApiController extends Controller
             ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
             ->join('trackings', 'rws.id','=', 'trackings.id_rw')
             ->sum('trackings.meninggal');
-        $res = [
+        $res = [[
             'success' => true,
             'data' => 'Data Covid-19 Indonesia',
                 'positif' => $positif,
                 'sembuh' => $sembuh,
-                'meninggal' => $meninggal,
+                'meninggal' => $meninggal],
             'message' => 'berhasil'
         ];
         return response()->json($res, 200);
@@ -199,9 +199,9 @@ class ApiController extends Controller
             ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
             ->join('trackings', 'rws.id','=', 'trackings.id_rw')
             ->sum('trackings.positif');
-        $res = [
+        $res = [[
             'success' => true,
-            'data' => ['Positif' => $positif],
+            'data' => ['Positif' => $positif]],
             'message' => 'berhasil'
         ];
         return response()->json($res, 200);
@@ -213,9 +213,9 @@ class ApiController extends Controller
             ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
             ->join('trackings', 'rws.id','=', 'trackings.id_rw')
             ->sum('trackings.sembuh');
-        $res = [
+        $res = [[
             'success' => true,
-            'data' => ['Sembuh' => $sembuh],
+            'data' => ['Sembuh' => $sembuh]],
             'message' => 'berhasil'
         ];
         return response()->json($res, 200);
@@ -227,9 +227,9 @@ class ApiController extends Controller
             ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
             ->join('trackings', 'rws.id','=', 'trackings.id_rw')
             ->sum('trackings.meninggal');
-        $res = [
+        $res = [[
             'success' => true,
-            'data' => ['meninggal' => $meninggal],
+            'data' => ['meninggal' => $meninggal]],
             'message' => 'berhasil'
         ];
         return response()->json($res, 200);
@@ -238,9 +238,9 @@ class ApiController extends Controller
      public function global()
      {
          $url = Http::get('https://api.kawalcorona.com/')->json();
-         $res = [
+         $res = [[
              'success' => true,
-             'data' => $url,
+             'data' => $url],
              'message' => 'Menampilkan data Global'
          ];
          return response()->json($res, 200);

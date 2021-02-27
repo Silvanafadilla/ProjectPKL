@@ -2688,6 +2688,11 @@
 
     return Treeview;
   }();
+
+  // button
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
   /**
    * Data API
    * ====================================================

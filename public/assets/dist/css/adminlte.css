@@ -9,7 +9,10 @@
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+
  */
+ 
+  
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -32876,6 +32879,15 @@ a.text-muted:hover {
   color: #3f474e;
 }
 
+.my-custom-scrollbar {
+  position: relative;
+  height: 200px;
+  overflow: auto;
+  }
+  .table-wrapper-scroll-y {
+  display: block;
+  }
+
 [class*="accent-"] a.btn-primary {
   color: #fff;
 }
@@ -32918,5 +32930,11 @@ a.text-muted:hover {
 .dark-mode .link-black,
 .dark-mode .link-dark {
   color: #ced4da;
+}
+body {
+  background: #dd5e89;
+  background: -webkit-linear-gradient(to left, #dd5e89, #f7bb97);
+  background: linear-gradient(to left, #dd5e89, #f7bb97);
+  min-height: 100vh;
 }
 /*# sourceMappingURL=adminlte.css.map */

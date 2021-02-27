@@ -80,7 +80,15 @@
               </li>
             </ul>
           </li>
-          
+          <li class="nav-item menu-open">
+            <a class="nav-link active" href="{{ route('logout') }}" onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();" role="button">
+              <span class="glyphicon"></span> Logout
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
