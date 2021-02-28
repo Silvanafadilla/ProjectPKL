@@ -183,12 +183,13 @@ class ApiController extends Controller
             ->select('trackings.positif', 'trackings.sembuh', 'trackings.meninggal')
             ->join('trackings', 'rws.id','=', 'trackings.id_rw')
             ->sum('trackings.meninggal');
-        $res = [[
+        $res = [
             'success' => true,
             'data' => 'Data Covid-19 Indonesia',
-                'positif' => $positif,
-                'sembuh' => $sembuh,
-                'meninggal' => $meninggal],
+                'name' => [['positif' => $positif,
+                            'sembuh' => $sembuh,
+                            'meninggal' => $meninggal
+                ]],
             'message' => 'berhasil'
         ];
         return response()->json($res, 200);
