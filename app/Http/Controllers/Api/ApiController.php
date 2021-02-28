@@ -162,8 +162,8 @@ class ApiController extends Controller
             // dd($rw);
         $res = [[
             'success' => true,
-            'data' => ['Hari ini' => $rw],
-                'total' => $r],
+            'data' => ['Hari ini' => $rw,
+                'total' => $r]],
             'message' => 'berhasil'
         ];
         return response()->json($res, 200);        
@@ -229,9 +229,9 @@ class ApiController extends Controller
             ->sum('trackings.meninggal');
         $res = [[
             'success' => true,
-            'data' => ['meninggal' => $meninggal]],
+            'data' => ['meninggal' => $meninggal],
             'message' => 'berhasil'
-        ];
+        ]];
         return response()->json($res, 200);
      }
 
