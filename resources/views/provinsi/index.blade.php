@@ -41,7 +41,7 @@
                                         @method('DELETE')
                                         
                                             
-                                                <a href="{{route('provinsi.show', $data->id)}}" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></a>
+                                                <a href="{{route('provinsi.show', $data->id)}}" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="fa fa-table"></i></a>
                                             
                                                 <a href="{{route('provinsi.edit', $data->id)}}" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                                             

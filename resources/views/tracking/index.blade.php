@@ -18,7 +18,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="datatable">
                             <thead>
                                 <tr>
                                     <th scope="col">Nomor</th>
@@ -50,7 +50,6 @@
                                         <form action="{{route('tracking.destroy', $data->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{route('tracking.show', $data->id)}}" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></a>
                                             
                                         <a href="{{route('tracking.edit', $data->id)}}" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                                     

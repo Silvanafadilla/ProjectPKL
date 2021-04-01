@@ -15,23 +15,25 @@
                         'selectedKecamatan'=> $tracking->rw->kelurahan->id_kec, 
                         'selectedKota'=> $tracking->rw->kelurahan->kecamatan->id_kota,
                         'selectedProvinsi'=> $tracking->rw->kelurahan->kecamatan->kota->id_prov])
+                        </div>
+                        <div class="col">
                         <div class="form-group">
                             <label for="">Jumlah Positif</label>
-                            <input type="text" name="positif" value="{{$tracking->positif}}" class="form-control">
+                            <input type="number" min="1" name="positif" value="{{$tracking->positif}}" class="form-control">
                             @if ($errors->has('positif'))
                                 <span class="text-danger">{{$errors->first('positif')}}</span>
                             @endif
                         </div>
                         <div class="form-group">
                             <label for="">Jumlah Sembuh</label>
-                            <input type="text" name="sembuh" value="{{$tracking->sembuh}}" class="form-control">
+                            <input type="number" min="1" name="sembuh" value="{{$tracking->sembuh}}" class="form-control">
                             @if ($errors->has('sembuh'))
                                 <span class="text-danger">{{$errors->first('sembuh')}}</span>
                             @endif
                         </div>
                         <div class="form-group">
                             <label for="">Jumlah Meninggal</label>
-                            <input type="text" name="meninggal"  value="{{$tracking->meninggal}}" class="form-control">
+                            <input type="number" min="1" name="meninggal"  value="{{$tracking->meninggal}}" class="form-control">
                             @if ($errors->has('meninggal'))
                                 <span class="text-danger">{{$errors->first('meninggal')}}</span>
                             @endif
@@ -45,6 +47,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Simpan</button>
+                            <a href="{{url()->previous()}}" class="btn btn-secondary">Kembali</a>
                         </div>
                     </form>
                 </div>

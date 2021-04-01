@@ -63,6 +63,7 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         @yield('content')
+        
         <!-- /.row -->
         <!-- Main row -->
         

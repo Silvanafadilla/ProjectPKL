@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="{{url()->previous()}}" classs="btn btn-outline-secondary">Kembali</a>
+                            <a href="{{url()->previous()}}" class="btn btn-secondary">Kembali</a>
                         </div>
                     </form>
                 </div>

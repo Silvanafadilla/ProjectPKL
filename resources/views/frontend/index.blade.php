@@ -39,19 +39,40 @@
 
   <!-- ======= Top Bar ======= -->
   {{-- <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
-    <div class="container d-flex">
+    <di,v class="container d-flex">
         <i class="icofont-envelope">Tracking Covid</i>
-    </div>
-  </div> --}}
-  
-  <!-- ======= Header ======= -->
+     class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{{asset('frontend/assets/img/clients/client-2.png')}}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{{asset('frontend/assets/img/clients/client-3.png')}}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{{asset('frontend/assets/img/clients/client-4.png')}}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{{asset('frontend/assets/img/clients/client-5.png')}}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{{asset('frontend/assets/img/clients/client-6.png')}}" class="img-fluid" alt="">
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Clients Section --> --}}
+    <!-- ======= Header ======= -->
   <header id="header" class="top">
     <div class="container d-flex align-items-center">
 
       <h1 class="logo mr-auto"><a href="#"></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="{{asset('frontend/assets/img/logo.png')}}" alt=""></a>-->
-      <h1 class="logo mr-auto"><a href="index.html">TrackingCovid<span>.</span></a></h1>
+      <h1 class="logo mr-auto"></h1>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="#">Home</a></li>
@@ -124,14 +145,14 @@
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          {{-- <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
               <div class="icon"><i class="bx bx-world"></i></div>
               <h4 class="title"><a href="">Global</a></h4>
-              {{-- <p class="description"><h2><?php echo $get['value']; ?></h2> ORANG</p> --}}
+              <p class="description"><h2><?php echo $get['value']; ?></h2> ORANG</p>
             </div>
           </div>
-        </div>
+        </div> --}}
 
       </div>
     </section><!-- End Featured Services Section -->
@@ -179,95 +200,7 @@
       </div>
 
       </div>
-    </section><!-- End About Section -->
-
-    
-    <!-- ======= Skills Section ======= -->
-    {{-- <section id="skills" class="skills">
-      <div class="container" data-aos="fade-up">
-
-        
-      </div>
-    </section><!-- End Skills Section --> --}}
-
-    <!-- ======= Counts Section ======= -->
-    {{-- <section id="counts" class="counts">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="icofont-simple-smile"></i>
-              <span data-toggle="counter-up">232</span>
-              <p>Happy Clients</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-            <div class="count-box">
-              <i class="icofont-document-folder"></i>
-              <span data-toggle="counter-up">521</span>
-              <p>Projects</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="icofont-live-support"></i>
-              <span data-toggle="counter-up">1,463</span>
-              <p>Hours Of Support</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="icofont-users-alt-5"></i>
-              <span data-toggle="counter-up">15</span>
-              <p>Hard Workers</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Counts Section --> --}}
-
-    <!-- ======= Clients Section ======= -->
-    {{-- <section id="clients" class="clients section-bg">
-      <div class="container" data-aos="zoom-in">
-
-        <div class="row">
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{asset('frontend/assets/img/clients/client-1.png')}}" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{asset('frontend/assets/img/clients/client-2.png')}}" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{asset('frontend/assets/img/clients/client-3.png')}}" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{asset('frontend/assets/img/clients/client-4.png')}}" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{asset('frontend/assets/img/clients/client-5.png')}}" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{asset('frontend/assets/img/clients/client-6.png')}}" class="img-fluid" alt="">
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Clients Section --> --}}
-
+    </section><!-- End About Section -->  
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
       <div class="container" data-aos="fade-up">
