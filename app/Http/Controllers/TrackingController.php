@@ -26,19 +26,23 @@ class TrackingController extends Controller
 
     public function store(Request $request)
     {
+        $positif = (int)$request->positif;
+        $meninggal = $request->positif - $request->sembuh;
         $request->validate([
-            'positif' => 'required|max:5',
-            'sembuh' => 'required|max:5',
-            'meninggal' => 'required|max:5',
+            'positif' => 'required|numeric|min:1',
+            'sembuh' => "required|numeric|min:1|max:$positif",
+            'meninggal' => "required|numeric|min:1|max:$meninggal",
             'tanggal' => 'required',
         ],
             [
-                'positif.required' => 'Jumlah harus diisi!',
-                'positif.max' => 'Maximal 5 angka!',
-                'sembuh.required' => 'Jumlah harus diisi!',
-                'sembuh.max' => 'Maximal 5 angka!',
-                'meninggal.required' => 'Jumlah harus diisi!',
-                'meninggal.max' => 'Maximal 5 angka!',
+                'positif.required' => 'Data harus diisi',
+                'positif.min' => 'Data positif tidak boleh kurang dari 1',
+                'sembuh.required' => 'Data harus diisi',
+                'sembuh.min' => 'Jumlah sembuh tidak boleh kurang dari 1',
+                'sembuh.max' => 'Jumlah sembuh tidak boleh melebihi jumlah positif',
+                'meninggal.required' => 'Data harus diisi',
+                'meninggal.min' => 'Jumlah meninggal tidak boleh kuarng dari 1',
+                'meninggal.max' => 'Jumlah meninggal tidak boleh melebihi jumlah positif',
                 'tanggal' => 'Tanggal harus diisi!',
             ]
         );
@@ -70,7 +74,7 @@ class TrackingController extends Controller
             'positif' => 'required|max:5',
             'sembuh' => 'required|max:5',
             'meninggal' => 'required|max:5',
-            'tanggal' => 'required',
+            'tanggal' => 'required|before:date|after:date',
         ],
             [
                 'positif.required' => 'Jumlah harus diisi!',
@@ -80,6 +84,8 @@ class TrackingController extends Controller
                 'meninggal.required' => 'Jumlah harus diisi!',
                 'meninggal.max' => 'Maximal 5 angka!',
                 'tanggal' => 'Tanggal harus diisi!',
+                'tanggal.before' => 'Tidak bisa menginput hari kemarin',
+                'tanggal.after' => 'Tidak bisa menginput hari kemarin'
             ]
         );
         $tracking = Tracking::findOrFail($id);

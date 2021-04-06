@@ -37,9 +37,7 @@
                                     <td>
                                         <form action="{{route('rw.destroy', $data->id)}}" method="post">
                                         @csrf
-                                        @method('DELETE')
-                                        <a href="{{route('rw.show', $data->id)}}" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="fa fa-table"></i></a>
-                                            
+                                        @method('DELETE')    
                                         <a href="{{route('rw.edit', $data->id)}}" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                                     
                                         <button class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>

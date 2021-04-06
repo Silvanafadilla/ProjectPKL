@@ -22,7 +22,6 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Nomor</th>
-                                    <th scope="col">Kode Kecamatan</th>
                                     <th scope="col">Nama Kecamatan</th>
                                     <th scope="col">Nama Kota</th>
                                     <th scope="col">Aksi</th>
@@ -33,15 +32,12 @@
                                 @foreach($kecamatan as $data)
                                 <tr>
                                     <td scope="row">{{$no++}}</td>
-                                    <td>{{$data->kode_kec}}</td>
-                                    <td>{{$data->nama_kec}}</td>
+                                    <td>{{$data->nama_kec}}</>
                                     <td>{{$data->kota->nama_kota}}</td>
                                     <td>
                                         <form action="{{route('kecamatan.destroy', $data->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{route('kecamatan.show', $data->id)}}" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="fa fa-table"></i></a>
-                                            
                                         <a href="{{route('kecamatan.edit', $data->id)}}" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                                     
                                         <button class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>

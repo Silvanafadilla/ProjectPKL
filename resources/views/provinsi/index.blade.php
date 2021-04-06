@@ -11,9 +11,9 @@
             <div class="card">
                 <div class="card-header">
                     Data provinsi
-                    <a href="{{route('provinsi.create')}}"
+                    {{-- <a href="{{route('provinsi.create')}}"
                     class="float-right btn btn-outline-info">
-                    Tambah Data
+                    Tambah Data --}}
                 </a>
                 </div>
                 <div class="card-body">
@@ -39,10 +39,6 @@
                                         <form action="{{route('provinsi.destroy', $data->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        
-                                            
-                                                <a href="{{route('provinsi.show', $data->id)}}" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="fa fa-table"></i></a>
-                                            
                                                 <a href="{{route('provinsi.edit', $data->id)}}" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                                             
                                                 <button class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>

@@ -145,14 +145,14 @@
             </div>
           </div>
 
-          {{-- <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
               <div class="icon"><i class="bx bx-world"></i></div>
               <h4 class="title"><a href="">Global</a></h4>
               <p class="description"><h2><?php echo $get['value']; ?></h2> ORANG</p>
             </div>
           </div>
-        </div> --}}
+        </div>
 
       </div>
     </section><!-- End Featured Services Section -->
@@ -223,7 +223,7 @@
                                   <th scope="col">Meninggal</th>
                               </tr>
                           </thead>
-                          {{-- <tbody>
+                          <tbody>
                           @php $no=1; @endphp
                               @foreach($data2 as $data)
                               <tr>
@@ -234,7 +234,7 @@
                                   <td>{{$data['attributes']['Deaths']}}</td>
                               </tr>
                               @endforeach
-                          </tbody> --}}
+                          </tbody>
                       </table>
                   </div>
               </div>

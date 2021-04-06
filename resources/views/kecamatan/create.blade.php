@@ -11,13 +11,6 @@
                     <form action="{{route('kecamatan.store')}}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="">Kode Kecamatan</label>
-                            <input type="text" name="kode_kec" class="form-control">
-                            @if ($errors->has('kode_kec'))
-                                <span class="text-danger">{{$errors->first('kode_kec')}}</span>
-                            @endif
-                        </div>
-                        <div class="form-group">
                             <label for="">Nama Kecamatan</label>
                             <input type="text" name="nama_kec" class="form-control">
                             @if ($errors->has('nama_kec'))
